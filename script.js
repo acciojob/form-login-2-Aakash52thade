@@ -1,16 +1,13 @@
-// This code runs when the form is submitted
-document.getElementById("userForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // Prevent actual form submission
+const form = document.querySelector('form');
 
-  // Get values from input fields using name attributes
-  const firstName = this.elements["First Name"].value;
-  const lastName = this.elements["Last Name"].value;
-  const phone = this.elements["Phone Number"].value;
-  const email = this.elements["Email ID"].value;
+form.addEventListener('submit', function (e) {
+  e.preventDefault(); // prevent actual form submission
 
-  // Format the message to be shown in the alert
-  const message = `First Name ${firstName}\nLast Name ${lastName}\nPhone Number ${phone}\nEmail ID ${email}`;
+  const firstName = document.querySelector('[name="First Name"]').value.trim();
+  const lastName = document.querySelector('[name="Last Name"]').value.trim();
+  const phone = document.querySelector('[name="Phone Number"]').value.trim();
+  const email = document.querySelector('[name="Email ID"]').value.trim();
 
-  // Display the alert with form data
+  const message = `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phone}\nEmail ID: ${email}`;
   alert(message);
 });
